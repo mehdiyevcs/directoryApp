@@ -29,15 +29,7 @@ public class Controller {
     }
 
     @PostMapping(value = "/addStudent")
-    public ModelAndView addStudent(@RequestParam(name="fullName") String fullName,
-                             @RequestParam(name = "universityName") String universityName,
-                             @RequestParam(name = "specialityName") String specialityName,
-                             @RequestParam(name="jobTitle") String jobTitle){
-        Student student = new Student();
-        student.setJobTitle(jobTitle);
-        student.setFullName(fullName);
-        student.setSpecialityName(specialityName);
-        student.setUniversityName(universityName);
+    public ModelAndView addStudent(@ModelAttribute Student student){
         studentService.saveStudent(student);
         return getCatalog();
     }
