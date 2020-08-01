@@ -28,6 +28,11 @@ public class Controller {
         return mv;
     }
 
+    @GetMapping("/")
+    public ModelAndView getHome(){
+        return getCatalog();
+    }
+
     @PostMapping(value = "/addStudent")
     public ModelAndView addStudent(@ModelAttribute Student student){
         studentService.saveStudent(student);
